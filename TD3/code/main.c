@@ -7,11 +7,12 @@
 	 
 int  main(int argc,char *argv[])
 {
-  FILE *fichA, *fichB;
+  FILE *fichA, *fichB, *fichAB;
   char nomFichA[15]="matriceA.txt";
   char nomFichB[15]="matriceB.txt";
+  char nomFichAB[15]="matriceAxB.txt";
 
-  int A[N][N], B[N][N], C[N][N];
+  int A[N][N], B[N][N], C[N][N] = {0}, D[N][N];
   int err;
   
   fichA=fopen(nomFichA,"r");
@@ -28,6 +29,14 @@ int  main(int argc,char *argv[])
       exit(-1);
     }
   
+  fichAB=fopen(nomFichAB,"r");
+  if (!fichAB)
+    {
+      fprintf(stderr,"erreur d'ouverture du fichier %s\n",nomFichAB);
+      exit(-1);
+    }
+
+  
   err=lireMatrice(fichA,A);
   if (err)
     {
@@ -42,6 +51,14 @@ int  main(int argc,char *argv[])
       exit(-1);
     }
 
+  err=lireMatrice(fichAB,D);
+  if (err)
+    {
+      fprintf(stderr,"erreur lors de la lecture de %s\n",nomFichAB);
+      exit(-1);
+    }
+
+
  fprintf(stdout," Matrice lues: \n");
  fprintf(stdout," A: \n");
  ecrireMatrice(stdout,A);
@@ -49,11 +66,19 @@ int  main(int argc,char *argv[])
  fprintf(stdout," B: \n");
  ecrireMatrice(stdout,B);
 
+  fprintf(stdout," D: \n");
+  ecrireMatrice(stdout,D);
+
  matProd(A,B,C);
 
- fprintf(stdout," resultat du produit C=AB (FAUX évidement): \n");
+ fprintf(stdout," resultat du produit C=AB: \n");
  ecrireMatrice(stdout,C);
- 
- 
-   return(0);
-}
+
+fprintf(stdout," resultat du produit est ");
+ if (matEqualQ(D,C)){
+   fprintf(stdout,"faux!\n");
+ }
+ else {fprintf(stdout,"vrai!\n");}
+
+ return(0);
+ }
