@@ -29,7 +29,7 @@ int main(int argc,char **argv)
 
   afficherPile(pDepart);
 
-  hanoi(pDepart, pPassage, pArrive, Nombre);
+  hanoi(&pDepart, &pPassage, &pArrive, Nombre);
     
   afficherPile(pArrive);
 
