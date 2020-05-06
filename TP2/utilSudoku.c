@@ -61,8 +61,6 @@ int sudokuValide(int sudoku[9][9]){
 }
 
 
-
-
 int isPossible(int i, int j, int val, int M[9][9][9]){
   if (M[i][j][val]==0)return(1);
   else return(0);
