@@ -1,0 +1,16 @@
+1 - En informatique, l'une des parties les plus importantes est la mémoire. La mémoire est l'endroit ou l'on stoque tout ce que l'on sait
+pour ne pas le perdre. Cette mémoire fonctione un peu comme un quartier de maison ou chaque personne représente une valeur, c'est-à-dire une
+donnée que l'on connait. Ces personnes, on le reconnait par l'adresse de leur maison, par exemple à la maison numéro 36, il y a une personne
+qui nous donne la valeur 47. Il est tout a fait possible que deux personnes d'une maison différentes nous donne la même valeur, mais il est 
+impossible que deux personnes vivent dans la même maison. Dans ce contexte, un pointeur est une personne qui ne donne pas une valeur ordinaire
+mais qui donne l'adresse d'une personne afin de retrouver sa valeur. Par exemple, si je dis que la personne à la maison 12 est un pointeur,
+cela signifie que si je demande à cette personne ce qu'elle sait, elle me dira "la maison 54" et donc je sais qu'a la maison 54 il y a une
+valeur qui m'interesse.
+
+2 - Lorsque l'on passe une donnée en paramètre dans C, il y a deux façon majeure de procéder, soit l'on transmet une valeur, soit une 
+variable. Une variable contient une valeur à une adresse. Si j'ai une variable int a = 12 et que j'appelle fonction(a), j'envoie dans 
+fonction() la valeur de a, ici 12. Ainsi si je me place dans la fonction, je reçois 12 et je n'ai en aucun idée qu'il existe une variable
+a. Si à la place j'avais ecrit foncton(&a), j'aurai envoyé la case mémoire ou se trouve a, qui contient la valeur 12. De cette façon, 
+si je me place dans fonction(), je vois que je reçois une case mémoire dans laquelle je peux agir (récupérer la valeur ou écrire dedans). 
+Si je décide d'écrire à cette case mémoire, cette modification apparaîtra pour l'ensemble des programmes qui connait cette case, j'agit 
+directement sur la variable.

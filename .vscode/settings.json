@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "bitset": "cpp",
+        "functional": "cpp",
+        "optional": "cpp",
+        "string": "cpp",
+        "system_error": "cpp",
+        "__node_handle": "c"
+    }
+}
